@@ -66,6 +66,9 @@ class UserCourse(models.Model):
     course = models.ForeignKey(Course,verbose_name='课程',on_delete=models.CASCADE)
     add_time = models.DateTimeField('添加时间', default=datetime.now)
 
+    def __str__(self):
+        return self.name
+
     class Meta:
         verbose_name = '用户课程'
         verbose_name_plural = verbose_name

@@ -16,6 +16,8 @@ import sys
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0,os.path.join(BASE_DIR,'apps'))
 sys.path.insert(0,os.path.join(BASE_DIR, 'extra_apps'))
@@ -41,10 +43,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'users',
-    'course',
-    'organization',
-    'operation',
+    'users.apps.UsersConfig',
+    'course.apps.CourseConfig',
+    'organization.apps.OrganizationConfig',
+    'operation.apps.OperationConfig',
     'xadmin',
     'crispy_forms'
 ]
@@ -64,7 +66,7 @@ ROOT_URLCONF = 'YunXue.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -97,6 +99,10 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
+
+AUTHENTICATION_BACKENDS = (
+    'users.views.CustomBackend',
+)
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -132,3 +138,6 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR,'static'),
+)

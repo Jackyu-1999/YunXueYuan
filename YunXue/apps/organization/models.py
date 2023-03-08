@@ -10,6 +10,9 @@ class CityDict(models.Model):
     desc = models.CharField('描述',max_length=200)
     add_time = models.DateTimeField(default=datetime.now)
 
+    def __str__(self):
+        return self.name
+
     class Meta:
         verbose_name = '城市'
         verbose_name_plural= verbose_name
@@ -24,6 +27,9 @@ class CourseOrg(models.Model):
     address = models.CharField('机构地址',max_length=150,)
     city = models.ForeignKey(CityDict,verbose_name='所在城市',on_delete=models.CASCADE)
     add_time = models.DateTimeField(default=datetime.now)
+
+    def __str__(self):
+        return self.name
 
     class Meta:
         verbose_name = '课程机构'
