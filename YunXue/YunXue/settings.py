@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'organization.apps.OrganizationConfig',
     'operation.apps.OperationConfig',
     'xadmin',
+    'captcha',
     'crispy_forms'
 ]
 
@@ -141,3 +142,16 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR,'static'),
 )
+
+
+
+EMAIL_HOST = 'smtp.163.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = 'yzplovetop99@163.com'
+EMAIL_HOST_PASSWORD = 'OBNRZTMRQAWGAWGP'
+EMAIL_FROM = 'yzplovetop99@163.com'
+
+# 163授权码 yzplovetop99@163.com
+# OBNRZTMRQAWGAWGP
+# QQ授权码 1736744135@qq.com
+# whbagfnnbhgjejci
