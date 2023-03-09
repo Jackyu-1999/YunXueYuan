@@ -68,10 +68,6 @@ class LogoutView(View):
         return redirect(reverse('index'))
 
 
-
-
-
-# 激活用户的view
 class ActiveUserView(View):
     def get(self, request, active_code):
         # 查询邮箱验证记录是否存在
@@ -147,7 +143,6 @@ class ResetView(View):
         return render(request, "login.html")
 
 
-
 class ModifyPwdView(View):
     def post(self, request):
         modify_form = ModifyPwdForm(request.POST)
@@ -165,3 +160,15 @@ class ModifyPwdView(View):
         else:
             email = request.POST.get("email", "")
             return render(request, "password_reset.html", {"email":email, "modify_form":modify_form })
+
+
+
+
+
+
+
+
+
+
+
+

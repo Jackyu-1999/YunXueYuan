@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'operation.apps.OperationConfig',
     'xadmin',
     'captcha',
+    'pure_pagination',
     'crispy_forms'
 ]
 
@@ -67,7 +68,8 @@ ROOT_URLCONF = 'YunXue.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')]
+        ,
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -75,6 +77,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                #添加图片处理器，为了在课程列表中前面加上MEDIA_URL
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -143,6 +147,9 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR,'static'),
 )
 
+# 设置上传文件的路径
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')   #指定根目录
 
 
 EMAIL_HOST = 'smtp.163.com'
@@ -150,7 +157,8 @@ EMAIL_PORT = 25
 EMAIL_HOST_USER = 'yzplovetop99@163.com'
 EMAIL_HOST_PASSWORD = 'OBNRZTMRQAWGAWGP'
 EMAIL_FROM = 'yzplovetop99@163.com'
-
+# 默认添加的用户是激活状态（is_active=1表示True），修改默认的状态（改为is_active = False），
+# 只有用户去邮箱激活之后才改为True
 # 163授权码 yzplovetop99@163.com
 # OBNRZTMRQAWGAWGP
 # QQ授权码 1736744135@qq.com
