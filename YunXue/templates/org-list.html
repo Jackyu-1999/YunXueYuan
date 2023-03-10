@@ -71,7 +71,7 @@
                             <dl class="des difdes">
 
                                 <dt>
-                                    <a href="org-detail-homepage.html">
+                                    <a href="{% url 'org:org_home' course_org.id %}">
 
                                         <img width="200" height="120" class="scrollLoading"
                                              data-url="{{ MEDIA_URL }}{{ course_org.image }}"/>
@@ -138,6 +138,7 @@
 
             <div class="right companyright">
                 <div class="head">我要学习</div>
+
                 <form class="rightform" id="jsStayForm">
                     <div>
                         <img src="{% static 'images/rightform1.png' %}"/>
@@ -151,12 +152,13 @@
                         <img src="{% static 'images/rightform3.png' %}"/>
                         <input type="text" name="course_name" id="companyAddress" placeholder="课程名" maxlength="50"/>
                     </div>
-                    <p class="error company-tips" id="jsCompanyTips"></p>
-                    <input class="btn" type="text" id="jsStayBtn" value="立即咨询"/>
-                    {% csrf_token %}
-                </form>
-            </div>
 
+                    <p class="error company-tips" id="jsCompanyTips"></p>
+                    <input class="btn" type="text" id="jsStayBtn" value="立即咨询"/> {% csrf_token %}
+
+                </form>
+
+            </div>
 
 
             <div class="right companyrank layout">
@@ -173,27 +175,52 @@
             </div>
         </div>
     </section>
+
 {% endblock %}
 
-
-<script>
-    $(function () {
-        $('#jsStayBtn').on('click', function () {
-            $.ajax({
-                cache: false,
-                type: "POST",
-                url: "{% url "org:add_ask" %}",
-                data: $('#jsStayForm').serialize(),
-                async: true,
-                success: function (data) {
-                    if (data.status == 'success') {
-                        $('#jsStayForm')[0].reset();
-                        alert("提交成功")
-                    } else if (data.status == 'fail') {
-                        $('#jsCompanyTips').html(data.msg)
-                    }
-                },
+{% block custom_js %}
+    <script>
+        $(function () {
+            $('#jsStayBtn').on('click', function () {
+                $.ajax({
+                    cache: false,
+                    type: "POST",
+                    url: "{% url "org:add_ask" %}",
+                    data: $('#jsStayForm').serialize(),
+                    async: true,
+                    success: function (data) {
+                        if (data.status == 'success') {
+                            $('#jsStayForm')[0].reset();
+                            alert("提交成功")
+                        } else if (data.status == 'fail') {
+                            $('#jsCompanyTips').html(data.msg)
+                        }
+                    },
+                });
             });
-        });
-    })
-</script>
+        })
+    </script>
+
+    <script>
+        $(function () {
+            $('#jsStayBtn').on('click', function () {
+                $.ajax({
+                    cache: false,
+                    type: "POST",
+                    url: "/org/add_ask/",
+                    data: $('#jsStayForm').serialize(),
+                    async: true,
+                    success: function (data) {
+                        if (data.status == 'success') {
+                            $('#jsStayForm')[0].reset();
+                            alert("提交成功")
+                        } else if (data.status == 'fail') {
+                            $('#jsCompanyTips').html(data.msg)
+                        }
+                    },
+                });
+            });
+        })
+    </script>
+{% endblock %}
+
