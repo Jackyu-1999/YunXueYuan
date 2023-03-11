@@ -37,7 +37,7 @@
 
             <div class="middle">
                 <div class="wp">
-                    <a href="/"><img class="fl" src="../images/logo.jpg"/></a>
+                    <a href="/"><img class="fl" src="{% static "images/logo.jpg" %}"/></a>
                     <div class="searchbox fr">
                         <div class="selectContainer fl">
                             <span class="selectOption" id="jsSelectOption" data-value="group">
@@ -51,7 +51,7 @@
                             </ul>
                         </div>
                         <input id="search_keywords" class="fl" type="text" value="" placeholder="请输入搜索内容"/>
-                        <img class="search_btn fr" id="jsSearchBtn" src="../images/search_btn.png"/>
+                        <img class="search_btn fr" id="jsSearchBtn" src="{% static "images/search_btn.png" %}"/>
                     </div>
                 </div>
             </div>
@@ -60,16 +60,16 @@
             <nav>
                 <div class="nav">
                     <div class="wp">
-                            <li><a href="index.html">首页</a></li>
+                            <li><a href="{% url 'index' %}">首页</a></li>
                             <li>
-                                <a href="course-list.html">
-                                    公开课<img class="hot" src="../images/nav_hot.png">
+                                <a href="{% url 'course:course_list' %}">
+                                    公开课<img class="hot" src="{% static "images/nav_hot.png" %}">
                                 </a>
                             </li>
                             <li>
                                 <a href="teachers-list.html">授课教师</a>
                             </li>
-                            <li class="active"><a href="org-list.html">授课机构</a></li>
+                            <li class="active"><a href="{% url 'org:org_list' %}">授课机构</a></li>
                         </ul>
                     </div>
                 </div>

@@ -80,14 +80,14 @@
 						<ul>
 							<li class="active"><a href="index.html">首页</a></li>
 							<li >
-								<a href="course-list.html">
+								<a href="{% url 'course:course_list' %}">
 									公开课<img class="hot" src="/static/images/nav_hot.png">						
 								</a>
 							</li>
 							<li class="">
 								<a href="teachers-list.html">授课教师</a>
 							</li>
-							<li ><a href="org-list.html">授课机构</a></li>
+							<li ><a href="{% url 'org:org_list' %}">授课机构</a></li>
 						</ul>
 					</div>
 				</div>
@@ -119,7 +119,7 @@
                                 <li>
                                     <a href="http://mp.weixin.qq.com/s?__biz=MzIxOTExMDA5OA==&amp;mid=2656196547&amp;idx=1&amp;sn=9a99586fb1b1a01c8b5c0e6c81bd307a&amp;scene=1&amp;srcid=0720EO3WmlldCDYMA6cw8mBp#wechat_redirect">
                                         <img width="1200" height="478" class="scrollLoading" data-url="/static/images/57a801860001c34b12000460.jpg" src="/static/images/pixel.gif" />
-                                    </a>
+                                        org_home              </a>
                                 </li>
                             
                                 <li>

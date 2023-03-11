@@ -39,9 +39,18 @@ class CourseOrg(models.Model):
     class Meta:
         verbose_name = '课程机构'
         verbose_name_plural = verbose_name
+    def get_course_nums(self):
+        # 获取课程数
+        return self.course_set.all().count()
+
+    def get_teacher_nums(self):
+        """获取机构教师数"""
+        return self.teacher_set.count()
 
     def __str__(self):
         return self.name
+
+
 
 
 
