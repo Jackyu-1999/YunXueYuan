@@ -29,8 +29,8 @@
                     <div class="fl"><p>服务电话：<b>33333333</b></p></div>
                     <!--登录后跳转-->
 
-                    <div class="fr registerbtn">注册</div>
-                    <div class="fr loginbtn">登录</div>
+                    <div class="fr registerbtn">登录</div>
+                    <div class="fr loginbtn">注册</div>
 
                 </div>
             </div>
@@ -62,14 +62,14 @@
                     <div class="wp">
                             <li><a href="{% url 'index' %}">首页</a></li>
                             <li>
-                                <a href="{% url 'course:course_list' %}">
+                                <a href="{% url 'course:course_list' %}" class="active">
                                     公开课<img class="hot" src="{% static "images/nav_hot.png" %}">
                                 </a>
                             </li>
                             <li>
                                 <a href="teachers-list.html">授课教师</a>
                             </li>
-                            <li class="active"><a href="{% url 'org:org_list' %}">授课机构</a></li>
+                            <li ><a href="{% url 'org:org_list' %}">授课机构</a></li>
                         </ul>
                     </div>
                 </div>

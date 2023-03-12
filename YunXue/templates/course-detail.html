@@ -7,13 +7,17 @@
         <div class="wp">
             <div class="crumbs">
                 <ul>
-                    <li><a href="index.html">首页</a></li>
-                    <li><a href="{% url 'course:course_list' %}">公开课程</a></li>
-                    <li>课程详情</li>
+                    <li><a href="{% url 'index' %}">首页</a>></li>
+                    <li><a href="{% url 'course:course_list' %}">公开课程</a>></li>
+                    <li><a href="{% url 'course:course_detail' course.id %}">{{ course.name }}</a>></li>
                 </ul>
             </div>
         </div>
     </section>
+{% endblock %}
+
+{% block custom_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/aui.css' %}" />
 {% endblock %}
 
 {% block content %}
@@ -54,7 +58,7 @@
                                 <div class="btn colectgroupbtn"  id="jsLeftBtn">
                                     {% if has_fav_course %}已收藏{% else %}收藏{% endif %}
                                 </div>
-                                <div class="buy btn"><a style="color: white" href="course-video.html">开始学习</a></div>
+                                <div class="buy btn"><a style="color: white" href="{% url 'course:course_info' course.id %}">开始学习</a></div>
                             </div>
                         </div>
 
