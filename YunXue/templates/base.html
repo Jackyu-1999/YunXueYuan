@@ -30,9 +30,9 @@
             <div class="top">
                 <div class="wp">
                     <div class="fl"><p>服务电话：<b>33333333</b></p></div>
-                    <div  class="fl"><p><a style="color: white;font-size: 18px;" href="#"></a></p></div>
+                    <div  class="fl"><p><a style="color: white;font-size: 18px;" href="http://www.cnblogs.com/derek1184405959/"><b>我的博客园地址</b></a></p></div>
+                    <!--登录后跳转-->
 
-                    <!--登录后-->
                     {% if request.user.is_authenticated %}
                         <div class="personal">
                             <dl class="user fr">
@@ -49,14 +49,12 @@
                                     </dd>
                                 </dl>
                                 <div class="btn">
-                                    <a class="personcenter fl" href="#">进入个人中心</a>
-                                    <a class="fr" href="#">退出</a>
+                                    <a class="personcenter fl" href="{% url 'users:user_info' %}">进入个人中心</a>
+                                    <a class="fr" href="{% url 'logout' %}">退出</a>
                                 </div>
                             </div>
                         </div>
-
                     {% else %}
-                        <!--登录前-->
                         <a style="color:white" class="fr registerbtn" href="{% url 'register' %}">注册</a>
                         <a style="color:white" class="fr loginbtn" href="{% url 'login' %}">登录</a>
                     {% endif %}
