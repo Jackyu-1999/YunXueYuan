@@ -58,6 +58,7 @@ class CourseOrg(models.Model):
 class Teacher(models.Model):
     org = models.ForeignKey(CourseOrg,verbose_name='所属机构',on_delete=models.CASCADE)
     name = models.CharField('教师名',max_length=50)
+    teacher_age = models.IntegerField('年龄',default=25)
     image = models.ImageField(
         default= '',
         upload_to="teacher/%Y/%m",
