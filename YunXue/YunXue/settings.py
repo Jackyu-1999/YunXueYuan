@@ -31,7 +31,7 @@ SECRET_KEY = '4ck8ue^jdin1x!5#&-jms9ob2qk_5*^4%#rmw6@-t%blfeq-ap'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ['*']
 
 AUTH_USER_MODEL = 'users.UserProfile'
 # Application definition
@@ -139,18 +139,21 @@ USE_L10N = True
 USE_TZ = False
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.0/howto/static-files/
+
+
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR,'static'),
 )
 
+
 # 设置上传文件的路径
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')   #指定根目录
 
+#静态文件
+# STATICFILES_ROOT = os.path.join(BASE_DIR, 'static')
 
 EMAIL_HOST = 'smtp.163.com'
 EMAIL_PORT = 25

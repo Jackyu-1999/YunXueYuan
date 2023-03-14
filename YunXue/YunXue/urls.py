@@ -1,4 +1,5 @@
-# MxOnline/urls.py
+
+from django.conf.global_settings import STATIC_ROOT
 
 import xadmin
 
@@ -7,7 +8,8 @@ from django.urls import path,include,re_path
 from django.views.generic import TemplateView
 
 from course.views import CourseDetailView
-from users.views import LoginView, RegisterView, ActiveUserView, ForgetPwdView, ResetView, ModifyPwdView, LogoutView
+from users.views import LoginView, RegisterView, ActiveUserView, ForgetPwdView, ResetView, ModifyPwdView, LogoutView, \
+    IndexView
 from organization.views import OrgView
 from django.views.static import serve
 from YunXue.settings import MEDIA_ROOT
@@ -30,7 +32,12 @@ urlpatterns = [
     #个人信息
     path("users/", include('users.urls', namespace="users")),
     path('logout/', LogoutView.as_view(), name="logout"),
-
-
+    # re_path(r'^static/(?P<path>.*)', serve, {"document_root": STATIC_ROOT }),
+    # path('index/', IndexView.as_view(), name="index"),
 ]
+
+# 全局404页面配置
+handler404 = 'users.views.pag_not_found'
+# 全局500页面配置
+handler500 = 'users.views.page_error'
 

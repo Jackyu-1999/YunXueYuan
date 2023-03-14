@@ -34,6 +34,7 @@ class CourseOrg(models.Model):
     image = models.ImageField('logo',upload_to='org/%Y/%m',max_length=100)
     address = models.CharField('机构地址',max_length=150,)
     city = models.ForeignKey(CityDict,verbose_name='所在城市',on_delete=models.CASCADE)
+    tag = models.CharField('机构标签',max_length=10,default='全国知名')
     add_time = models.DateTimeField(default=datetime.now)
 
     class Meta:

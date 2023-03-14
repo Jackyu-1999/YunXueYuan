@@ -56,6 +56,7 @@ class UserMessage(models.Model):
     has_read = models.BooleanField('是否已读',default=False)
     add_time = models.DateTimeField('添加时间', default=datetime.now)
 
+
     class Meta:
         verbose_name = '用户消息'
         verbose_name_plural = verbose_name
