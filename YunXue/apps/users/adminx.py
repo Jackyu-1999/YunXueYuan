@@ -14,11 +14,8 @@ class BaseSetting(object):
 
 # 全局修改，固定写法
 class GlobalSettings(object):
-    # 修改title
-    site_title = 'NBA后台管理界面'
-    # 修改footer
-    site_footer = '科比的公司'
-    # 收起菜单
+    site_title = '云学苑后台管理系统'
+    site_footer = '云学苑'
     menu_style = 'accordion'
 
 
@@ -30,12 +27,14 @@ class EmailVerifyRecordAdmin(object):
     search_fields = ['code', 'email', 'send_type']
     # 过滤
     list_filter = ['code', 'email', 'send_type', 'send_time']
+    model_icon = 'fa fa-envelope'
 
 
 class BannerAdmin(object):
     list_display = ['title', 'image', 'url','index', 'add_time']
     search_fields = ['title', 'image', 'url','index']
     list_filter = ['title', 'image', 'url','index', 'add_time']
+    model_icon = 'fa fa-photo'
 
 
 xadmin.site.register(EmailVerifyRecord,EmailVerifyRecordAdmin)

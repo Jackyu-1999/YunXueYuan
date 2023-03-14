@@ -42,6 +42,7 @@ class Course(models.Model):
     def get_zj_nums(self):
         #获取课程的章节数
         return self.lesson_set.all().count()
+    get_zj_nums.short_description = '章节数'   #在后台显示的名称
 
     def get_learn_users(self):
         #获取这门课程的3个学习用户
@@ -54,6 +55,13 @@ class Course(models.Model):
     def __str__(self):
         return self.name
 
+class BannerCourse(Course):
+    '''显示轮播课程'''
+    class Meta:
+        verbose_name = '轮播课程'
+        verbose_name_plural = verbose_name
+        #这里必须设置proxy=True，这样就不会再生成一张表，同时还具有Model的功能
+        proxy = True
 
 
 
