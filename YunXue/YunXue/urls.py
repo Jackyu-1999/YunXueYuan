@@ -1,5 +1,4 @@
 
-from django.conf.global_settings import STATIC_ROOT
 
 import xadmin
 
@@ -12,7 +11,7 @@ from users.views import LoginView, RegisterView, ActiveUserView, ForgetPwdView, 
     IndexView
 from organization.views import OrgView
 from django.views.static import serve
-from YunXue.settings import MEDIA_ROOT
+from YunXue.settings import MEDIA_ROOT, STATICFILES_ROOT
 
 
 urlpatterns = [
@@ -32,7 +31,7 @@ urlpatterns = [
     #个人信息
     path("users/", include('users.urls', namespace="users")),
     path('logout/', LogoutView.as_view(), name="logout"),
-    # re_path(r'^static/(?P<path>.*)', serve, {"document_root": STATIC_ROOT }),
+    re_path(r'^static/(?P<path>.*)', serve, {"document_root": STATICFILES_ROOT }),
     # path('index/', IndexView.as_view(), name="index"),
 ]
 
