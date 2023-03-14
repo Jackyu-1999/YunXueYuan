@@ -1,5 +1,4 @@
 
-
 import xadmin
 
 from django.urls import path,include,re_path
@@ -16,6 +15,7 @@ from YunXue.settings import MEDIA_ROOT, STATICFILES_ROOT
 
 urlpatterns = [
     path('xadmin/', xadmin.site.urls),
+    path('', IndexView.as_view(),name='index'),
     path('', TemplateView.as_view(template_name='index.html'),name='index'),
     path('login/',LoginView.as_view(),name = 'login'),
     path('register/',RegisterView.as_view(),name = 'register'),
@@ -32,7 +32,7 @@ urlpatterns = [
     path("users/", include('users.urls', namespace="users")),
     path('logout/', LogoutView.as_view(), name="logout"),
     re_path(r'^static/(?P<path>.*)', serve, {"document_root": STATICFILES_ROOT }),
-    # path('index/', IndexView.as_view(), name="index"),
+
 ]
 
 # 全局404页面配置

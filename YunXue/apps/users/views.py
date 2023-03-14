@@ -63,7 +63,7 @@ class IndexView(View):
         #课程机构
         course_orgs = Course.objects.all()[:15]
         return render(request,'index.html',{
-            'all_banners':all_banners,
+            'all_banners': all_banners,
             'courses':courses,
             'banner_courses':banner_courses,
             'course_orgs':course_orgs,

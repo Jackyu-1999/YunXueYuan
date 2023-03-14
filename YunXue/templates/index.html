@@ -15,7 +15,7 @@
                         {% for banner in all_banners %}
                             <li>
                                 <a href="{{ banner.url }}">
-                                    <img width="1200" height="478" src="{{ MEDIA_URL }}{{ banner.image }}" />
+                                    <img width="1200" height="478" class="scrollLoading" data-url="{{ MEDIA_URL }}{{ banner.image }}">
                                 </a>
                             </li>
                         {% endfor %}
