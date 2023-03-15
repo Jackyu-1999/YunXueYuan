@@ -61,12 +61,12 @@ class IndexView(View):
         #轮播课程
         banner_courses = Course.objects.filter(is_banner=True)[:3]
         #课程机构
-        course_orgs = Course.objects.all()[:15]
+        course_orgs = CourseOrg.objects.all()
         return render(request,'index.html',{
             'all_banners': all_banners,
-            'courses':courses,
-            'banner_courses':banner_courses,
-            'course_orgs':course_orgs,
+            'courses': courses,
+            'banner_courses': banner_courses,
+            'course_orgs': course_orgs,
         })
 
 

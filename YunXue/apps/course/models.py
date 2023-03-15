@@ -55,6 +55,7 @@ class Course(models.Model):
     def __str__(self):
         return self.name
 
+
 class BannerCourse(Course):
     '''显示轮播课程'''
     class Meta:
@@ -63,7 +64,8 @@ class BannerCourse(Course):
         #这里必须设置proxy=True，这样就不会再生成一张表，同时还具有Model的功能
         proxy = True
 
-
+    def __str__(self):
+        return self.name
 
 
 class Lesson(models.Model):
@@ -80,7 +82,7 @@ class Lesson(models.Model):
         return self.video_set.all()
 
     def __str__(self):
-        return '《{0}》课程的章节 >> {1}'.format(self.course, self.name)
+        return self.name
 
 class Video(models.Model):
     lesson = models.ForeignKey(Lesson, verbose_name="章节",on_delete=models.CASCADE)
@@ -93,6 +95,9 @@ class Video(models.Model):
         verbose_name = "视频"
         verbose_name_plural = verbose_name
 
+    def __str__(self):
+        return self.name
+
 
 class CourseResource(models.Model):
     course = models.ForeignKey(Course, verbose_name="课程",on_delete=models.CASCADE)
@@ -104,3 +109,5 @@ class CourseResource(models.Model):
         verbose_name = "课程资源"
         verbose_name_plural = verbose_name
 
+    def __str__(self):
+        return self.name

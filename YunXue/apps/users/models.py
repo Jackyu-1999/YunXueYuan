@@ -17,7 +17,7 @@ class UserProfile(AbstractUser):
     gender = models.CharField('性别',max_length=10,choices=gender_choices,default='female')
     address = models.CharField('地址',max_length=100,default='')
     mobile = models.CharField('手机号',max_length=11,null=True,blank=True)
-    image = models.ImageField(upload_to='image/%Y%m',default='image/default.png',max_length=100)
+    image = models.ImageField(upload_to='image/%Y%m',default='image/default.png',max_length=100, blank=True)
 
     class Meta:
         verbose_name = '用户信息'
@@ -56,6 +56,4 @@ class Banner(models.Model):
         verbose_name = '轮播图'
         verbose_name_plural = verbose_name
 
-    def __str__(self):
-        return self.title
 
