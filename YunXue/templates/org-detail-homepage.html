@@ -33,28 +33,34 @@
     </div>
     <div class="right companycenter layout" >
         <div class="head">
-            <h1>机构教师</h1>
-            <a class="green fr more" href="org-detail-teachers.html">查看更多  >  </a>
+            <h1>机构讲师</h1>
         </div>
-        {% for teacher in all_teacher %}
-            <div class="diarys">
-                <div class="module5 share company-diary-box" style="padding:10px 0;">
-                    <div class="left">
-                        <p><a href="{% url 'org:teacher_detail' teacher.id %}"><img class="pic" src="{{ MEDIA_URL }}{{ teacher.image }}"/></a></p>
-                        <p><a href="{% url 'org:teacher_detail' teacher.id %}">昵称:{{ teacher.name }}</a></p>
-                    </div>
-                    <div class="right">
-                        <div class="top">
-                            <div class="fl">
-                                <a href=""><h1>Java教程</h1></a>
-                                <span>发表于：2018-04-22</span>
-                            </div>
-                        </div>
-                        <div class="middle" style="border-bottom:0;">课程介绍</div>
-                    </div>
-                </div>
+
+        <div class="messagelist">
+            <div class=" butler_list butler-fav-box">
+                {% for teacher in all_teacher %}
+                    <dl class="des users">
+                        <dt>
+                            <a href="{% url 'org:org_teacher' teacher.id %}">
+                                <img width="100" height="100" class="scrollLoading" data-url="{{ MEDIA_URL }}{{ teacher.image }}" src="{{ MEDIA_URL }}{{ teacher.image }}"/>
+                            </a>
+                        </dt>
+                        <dd>
+                            <h1>
+                                <a href="{% url 'org:org_teacher' teacher.id %}">
+                                    {{ teacher.name }}<span class="key">已认证</span>
+                                </a>
+                            </h1>
+                            <ul class="cont clearfix">
+                                <li class="time">工作年限：<span>{{ teacher.work_years }}</span></li>
+                                <li class="c7">课程数：<span>3</span></li>
+                            </ul>
+                        </dd>
+                    </dl>
+                {% endfor %}
+
             </div>
-        {% endfor %}
+        </div>
     </div>
 
 

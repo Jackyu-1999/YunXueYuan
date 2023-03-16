@@ -75,7 +75,10 @@ class LoginView(View):
     '''用户登录'''
 
     def get(self,request):
-        return render(request, 'login.html')
+        #轮播图
+        all_banners = Banner.objects.all().order_by('index')[:3]
+        return render(request, 'login.html', {'all_banners': all_banners})
+
 
     def post(self,request):
         # 实例化
@@ -128,7 +131,9 @@ class RegisterView(View):
     '''用户注册'''
     def get(self,request):
         register_form = RegisterForm()
-        return render(request,'register.html',{'register_form':register_form})
+        #轮播图
+        all_banners = Banner.objects.all().order_by('index')[:3]
+        return render(request,'register.html',{'register_form':register_form,'all_banners': all_banners})
 
     def post(self,request):
         register_form = RegisterForm(request.POST)
@@ -155,7 +160,9 @@ class ForgetPwdView(View):
     '''找回密码'''
     def get(self,request):
         forget_form = ForgetPwdForm()
-        return render(request,'forgetpwd.html',{'forget_form':forget_form})
+        #轮播图
+        all_banners = Banner.objects.all().order_by('index')[:3]
+        return render(request,'forgetpwd.html',{'forget_form':forget_form,'all_banners': all_banners})
 
     def post(self,request):
         forget_form = ForgetPwdForm(request.POST)

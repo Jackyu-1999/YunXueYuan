@@ -8,7 +8,7 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <title>{% block title %}
-        个人信息- 慕学在线网
+        个人信息- 云学苑
     {% endblock %}</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/animate.css' %}">
@@ -29,7 +29,7 @@
         <div class="header2 header">
             <div class="top">
                 <div class="wp">
-                    <div class="fl"><p>服务电话：<b>33333333</b></p></div>
+                    <div class="fl"><p>服务电话：<b>666666</b></p></div>
                     <!--登录后跳转-->
                     {% if request.user.is_authenticated %}
                         <div class="personal">
@@ -61,8 +61,8 @@
 
             <div class="middle">
                 <div class="wp">
-                    <a href="{% url 'index' %}"><img class="fl" src="{% static 'images/logo2.png' %}"/></a>
-                    <h1>我的慕学网</h1>
+                    <a href="{% url 'index' %}"><img class="fl" src="{% static 'images/logo.png' %}"/></a>
+                    <h1>云学苑</h1>
                 </div>
             </div>
         </div>
@@ -102,9 +102,7 @@
 <!--sidebar start-->
 <section>
     <ul class="sidebar">
-        <li class="qq">
-            <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2023525077&site=qq&menu=yes"></a>
-        </li>
+
         <li class="totop"></li>
     </ul>
 </section>
@@ -155,6 +153,7 @@
             </form>
         </div>
     </div>
+
     <div class="dialogbox changeemai1 changephone" id="jsChangeEmailDialog">
         <h1>修改邮箱</h1>
         <div class="close jsCloseDialog"><img src="{% static 'images/dig_close.png' %}"/></div>

@@ -21,10 +21,8 @@ class OrgView(View):
     def get(self, request):
         # 所有课程机构
         all_orgs = CourseOrg.objects.all()
-
         # 所有城市
         all_citys = CityDict.objects.all()
-
         # 机构搜索功能
         search_keywords = request.GET.get('keywords', '')
         if search_keywords:
@@ -105,8 +103,8 @@ class OrgHomeView(View):
             if UserFavorite.objects.filter(user=request.user, fav_id=course_org.id, fav_type=2):
                 has_fav = True
         # 反向查询到课程机构的所有课程和老师
-        all_courses = course_org.course_set.all()[:4]
-        all_teacher = course_org.teacher_set.all()[:2]
+        all_courses = course_org.course_set.all()
+        all_teacher = course_org.teacher_set.all()
         return render(request,'org-detail-homepage.html',{
             'course_org':course_org,
             'all_courses':all_courses,
