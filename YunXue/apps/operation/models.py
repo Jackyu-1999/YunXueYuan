@@ -38,9 +38,9 @@ class CourseComments(models.Model):
 
 class UserFavorite(models.Model):
     FAV_TYPE = (
-        (1,'课程'),
-        (2,'课程机构'),
-        (3,'讲师')
+        (1,'公开课程'),
+        (2,'高校机构'),
+        (3,'授课讲师')
     )
 
     user = models.ForeignKey(UserProfile,verbose_name='用户',on_delete=models.CASCADE)

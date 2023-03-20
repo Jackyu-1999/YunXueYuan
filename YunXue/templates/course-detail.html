@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
-{% block title %} 公开课列表 {% endblock %}
+{% block title %} 公开课程列表 {% endblock %}
 
 {% block custom_bread %}
     <section>
@@ -82,7 +82,7 @@
                     <div class="right">
 
                         <div class="head">
-                            <h1>授课机构</h1>
+                            <h1>高校机构</h1>
                             <p>世界名校，课程权威</p>
                         </div>
                         <div class="pic">
@@ -91,7 +91,7 @@
                             </a>
                         </div>
                         <a href="{% url 'org:org_home' course.course_org.id %}">
-                            <h2 class="center" title="课程机构">{{ course.course_org.name }}</h2>
+                            <h2 class="center" title="高校机构">{{ course.course_org.name }}</h2>
                         </a>
                         <div class="btn  notlogin
                          "data-favid="14" id="jsRightBtn">
