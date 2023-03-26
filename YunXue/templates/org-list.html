@@ -159,7 +159,7 @@
                 <div class="head">高校机构排名</div>
                 {% for curent_org in hot_orgs %}
                     <dl class="des">
-                        <dt class="num fl">{{ foorloop.counter }}</dt>
+                        <dt class="num fl">{{ forloop.counter }}</dt>
                         <dd>
                             <a href="/company/2/"><h1>{{ curent_org.name }}</h1></a>
                             <p>{{ curent_org.address }}</p>

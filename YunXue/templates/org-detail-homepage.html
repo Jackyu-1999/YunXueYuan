@@ -2,7 +2,7 @@
 
 {% extends 'org_base.html' %}
 
-<title>{% block title %}高校机构首页--新东方{% endblock %}</title>
+<title>{% block title %}高校机构首页--云学苑{% endblock %}</title>
 {% block page_path %}高校机构首页{% endblock %}
 
 {% block right_form %}
@@ -41,13 +41,13 @@
                 {% for teacher in all_teacher %}
                     <dl class="des users">
                         <dt>
-                            <a href="{% url 'org:org_teacher' teacher.id %}">
+                            <a href="{% url 'org:teacher_detail' teacher.id %}">
                                 <img width="100" height="100" class="scrollLoading" data-url="{{ MEDIA_URL }}{{ teacher.image }}" src="{{ MEDIA_URL }}{{ teacher.image }}"/>
                             </a>
                         </dt>
                         <dd>
                             <h1>
-                                <a href="{% url 'org:org_teacher' teacher.id %}">
+                                <a href="{% url 'org:teacher_detail' teacher.id %}">
                                     {{ teacher.name }}<span class="key">已认证</span>
                                 </a>
                             </h1>

@@ -35,6 +35,7 @@ def page_error(request):
     response.status_code = 500
     return response
 
+
 #邮箱和用户名都可以登录
 # 基础ModelBackend类，因为它有authenticate方法
 class CustomBackend(ModelBackend):
@@ -205,7 +206,6 @@ class ModifyPwdView(View):
             return render(request, "password_reset.html", {"email":email, "modify_form":modify_form })
 
 
-
 class UserinfoView(LoginRequiredMixin,View):
     '''用户个人信息'''
     def get(self,request):
@@ -218,6 +218,7 @@ class UserinfoView(LoginRequiredMixin,View):
             return HttpResponse('{"status":"success"}', content_type='application/json')
         else:
             return HttpResponse(json.dumps(user_info_form.errors), content_type='application/json')
+
 
 class UploadImageView(LoginRequiredMixin,View):
     '''用户图像修改'''

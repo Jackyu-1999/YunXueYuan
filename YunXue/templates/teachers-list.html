@@ -90,7 +90,7 @@
                 <div class="head">讲师排行榜</div>
                 {% for hot_teacher in sorted_teacher %}
                     <dl class="des">
-                        <span class="num fl">1</span>
+                        <span class="num fl">{{ forloop.counter }}</span>
                         <a href="{% url 'org:teacher_detail' hot_teacher.id %}">
                             <dt>
                                 <img width="50" height="50" class="scrollLoading"  src="{{ MEDIA_URL }}{{ hot_teacher.image }}"/>

@@ -72,7 +72,6 @@ class OrgView(View):
         })
 
 
-
 class AddUserAskView(View):
     """
     用户添加咨询
@@ -90,8 +89,7 @@ class AddUserAskView(View):
 
 class OrgHomeView(View):
     '''机构首页'''
-
-    def get(self,request,org_id):
+    def get(self, request, org_id):
         current_page = 'home'
         # 根据id找到课程机构
         course_org = CourseOrg.objects.get(id=int(org_id))
@@ -105,7 +103,7 @@ class OrgHomeView(View):
         # 反向查询到课程机构的所有课程和老师
         all_courses = course_org.course_set.all()
         all_teacher = course_org.teacher_set.all()
-        return render(request,'org-detail-homepage.html',{
+        return render(request,'org-detail-homepage.html', {
             'course_org':course_org,
             'all_courses':all_courses,
             'all_teacher':all_teacher,
