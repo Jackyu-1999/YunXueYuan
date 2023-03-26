@@ -45,8 +45,8 @@
                                     </dd>
                                 </dl>
                                 <div class="btn">
-                                    <a class="personcenter fl" href="/user_info">进入个人中心</a>
-                                    <a class="fr" href="/logout">退出</a>
+                                    <a class="personcenter fl" href="{% url 'users:user_info' %}">进入个人中心</a>
+                                    <a class="fr" href="{% url 'logout' %}">退出</a>
                                 </div>
                             </div>
                         </div>
@@ -126,8 +126,11 @@
 <script type="text/javascript" src="{% static 'js/plugins/laydate/laydate.js' %}"></script>
 <script src="{% static 'js/plugins/layer/layer.js' %}"></script>
 <script src="{% static 'js/plugins/queryCity/js/public.js' %}" type="text/javascript"></script>
-
+<script src="{% static 'js/unslider.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/plugins/jquery.scrollLoading.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/deco-common.js' %}" type="text/javascript"></script>>
 <script type="text/javascript" src="{% static 'js/plugins/jquery.raty.js' %}"></script>
+
 <script type="text/javascript">
 
     function add_fav(current_elem, fav_id, fav_type) {
