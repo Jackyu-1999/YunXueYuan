@@ -58,8 +58,7 @@ class UserFavorite(models.Model):
 
 class UserMessage(models.Model):
     user = models.IntegerField('接受用户id',default=0)
-    message = models.CharField('消息内容',max_length=500)
-    has_read = models.BooleanField('是否已读',default=False)
+    message = models.CharField('消息内容',max_length=500, null=True)
     add_time = models.DateTimeField('添加时间', default=datetime.now)
 
 

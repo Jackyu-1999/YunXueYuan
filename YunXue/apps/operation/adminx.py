@@ -29,9 +29,9 @@ class UserCourseAdmin(object):
 class UserMessageAdmin(object):
     '''用户咨询后台'''
 
-    list_display = ['user', 'message', 'has_read', 'add_time']
-    search_fields = ['user', 'message', 'has_read']
-    list_filter = ['user', 'message', 'has_read', 'add_time']
+    list_display = ['user', 'message', 'add_time']
+    search_fields = ['user', 'message']
+    list_filter = ['user', 'message', 'add_time']
     model_icon = 'fa fa-question'
 
 
