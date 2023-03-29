@@ -84,6 +84,7 @@ class CourseInfoView(LoginRequiredMixin,View):
         course = Course.objects.get(id=int(course_id))
         course.students += 1
         course.save()
+
         # 查询用户是否已经学习了该课程
         user_courses = UserCourse.objects.filter(user=request.user,course=course)
         if not user_courses:
@@ -100,8 +101,8 @@ class CourseInfoView(LoginRequiredMixin,View):
         all_user_courses = UserCourse.objects.filter(user_id__in=user_ids)
         # 取出所有课程id
         course_ids = [all_user_course.course_id for all_user_course in all_user_courses]
-        # 通过所有课程的id,找到所有的课程，按点击量去五个
-        relate_courses = Course.objects.filter(id__in=course_ids).order_by("-click_nums")[:5]
+        # 通过所有课程的id,找到所有的课程，按点击量去3个
+        relate_courses = Course.objects.filter(id__in=course_ids).order_by("-click_nums")[:3]
 
         # 资源
         all_resources = CourseResource.objects.filter(course=course)
@@ -118,6 +119,7 @@ class CommentsView(LoginRequiredMixin,View):
         course = Course.objects.get(id=int(course_id))
         all_resources = CourseResource.objects.filter(course=course)
         all_comments = CourseComments.objects.all()
+
         # 查询用户是否已经学习了该课程
         user_courses = UserCourse.objects.filter(user=request.user,course=course)
         if not user_courses:
@@ -134,8 +136,8 @@ class CommentsView(LoginRequiredMixin,View):
         all_user_courses = UserCourse.objects.filter(user_id__in=user_ids)
         # 取出所有课程id
         course_ids = [all_user_course.course_id for all_user_course in all_user_courses]
-        # 通过所有课程的id,找到所有的课程，按点击量去五个
-        relate_courses = Course.objects.filter(id__in=course_ids).order_by("-click_nums")[:5]
+        # 通过所有课程的id,找到所有的课程，按点击量去3个
+        relate_courses = Course.objects.filter(id__in=course_ids).order_by("-click_nums")[:3]
 
         return render(request, "course-comment.html", {
             "course": course,
@@ -154,6 +156,7 @@ class AddCommentsView(View):
             return HttpResponse('{"status":"fail", "msg":"用户未登录"}', content_type='application/json')
         course_id = request.POST.get("course_id", 0)
         comments = request.POST.get("comments", "")
+        # 这里判断course_id是否大于0其实是因为课程id没有为0的存在，实质上是一个真假判断，意思是只要有课程id传进来就为True
         if int(course_id) > 0 and comments:
             # 实例化一个course_comments对象
             course_comments = CourseComments()
@@ -176,7 +179,6 @@ class VideoPlayView(LoginRequiredMixin, View):
         video = Video.objects.get(id=int(video_id))
         #通过外键找到章节再找到视频对应的课程
         course = video.lesson.course
-
         course.students += 1
         course.save()
 
